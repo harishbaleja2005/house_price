@@ -12,7 +12,7 @@ def home():
     return {"message": "API is running"}
 
 
-@app.get("/predict")
+@app.post("/predict")
 def predict(bedrooms: int, bathrooms: int, sqft: int, age: int):
 
     data = pd.DataFrame({
