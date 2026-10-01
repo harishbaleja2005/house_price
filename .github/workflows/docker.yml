@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -27,6 +27,6 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/salary-api:latest
 
-      - name: Trigger Render Deploy
+      - name: Trigger Railway  Deploy
         run: |
-          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+          curl -X POST "${{ secrets.RAILWAY_DEPLOY_HOOK_URL }}"
