@@ -27,6 +27,10 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/salary-api:latest
 
-      - name: Trigger Railway  Deploy
-        run: |
-          curl -X POST "${{ secrets.RAILWAY_DEPLOY_HOOK_URL }}"
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Deploy to Railway
+        run: railway up --ci
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
