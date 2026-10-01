@@ -13,7 +13,7 @@ def home():
 
 
 @app.post("/predict")
-def predict(bedrooms: int, bathrooms: int, sqft: int, age: int):
+def predict(sqft: int,bedrooms: int, bathrooms: int, age: int):
 
     data = pd.DataFrame({
         "Square_Feet": [sqft],
